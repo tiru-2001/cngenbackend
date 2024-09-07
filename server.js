@@ -15,7 +15,11 @@ import http from 'http';
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://cngen.netlify.app',
+];
 
 app.use(
   cors({
