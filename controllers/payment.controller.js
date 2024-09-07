@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
-import Payment from '../database/payment/payment.js';
+import paymentmodel from '../database/payment/payment.js';
 import taskmodel from '../database/task/taskschema.js';
 
 const createOrders = async (req, res) => {
@@ -82,7 +82,7 @@ const verifyOrders = async (req, res) => {
         addressType: selectedAddressType,
       }).save();
 
-      const payment = new Payment({
+      const payments = new paymentmodel({
         razorpay_order_id,
         razorpay_payment_id,
         razorpay_signature,
@@ -90,7 +90,7 @@ const verifyOrders = async (req, res) => {
         userPhone: phone,
         taskId: task._id,
       });
-      await payment.save();
+      await payments.save();
       res.json({
         message: 'Payment Successful',
         success: true,
