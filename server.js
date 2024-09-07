@@ -15,18 +15,22 @@ import http from 'http';
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: allowedOrigins,
+    methods: ['GET', 'POST'],
   },
 });
-
 io.on('connection', (socket) => {
   socket.on('joinRoom', (employee_id) => {
     socket.join(employee_id);
