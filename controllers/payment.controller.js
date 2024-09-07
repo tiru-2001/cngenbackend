@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
-import Payment from '../database/payment/Payment.js';
+import Payment from '../database/payment/payment.js';
 import taskmodel from '../database/task/taskschema.js';
 
 const createOrders = async (req, res) => {
