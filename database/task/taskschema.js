@@ -37,7 +37,7 @@ const taskschema = new mongoose.Schema(
     },
     assignTime: {
       type: String,
-      required: true,
+      
     },
     assignDate: {
       type: String,
