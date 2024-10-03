@@ -20,6 +20,7 @@ const allowedOrigins = [
   'http://localhost:5174',
   'https://cngen.netlify.app',
   'https://cngenfrontend.vercel.app'
+ 'https://www.cngengroup.com'
 ];
 
 app.use(
