@@ -4,7 +4,7 @@ import taskmodel from '../database/task/taskschema.js';
 const postTasks = async (req, res) => {
   try {
     const { name, location, employee_id, amount, assignTime } = req.params;
-    if (!name || !location || !employee_id || !amount || !assignTime) {
+    if (!name || !location || !employee_id || !amount ) {
       return res.status(404).send({
         message: 'Please fill the form completely',
         success: false,
@@ -14,7 +14,6 @@ const postTasks = async (req, res) => {
     const savetheTask = await new taskmodel({
       name,
       amount,
-      assignTime,
       location,
       employee_id,
       carwash,
